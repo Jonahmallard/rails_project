@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_17_192053) do
+ActiveRecord::Schema.define(version: 2020_09_23_212917) do
 
   create_table "cars", force: :cascade do |t|
     t.integer "year"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2020_09_17_192053) do
   end
 
   create_table "races", force: :cascade do |t|
-    t.string "type"
     t.string "location"
     t.string "date"
     t.integer "placement"
@@ -38,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_192053) do
     t.integer "car_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "race_type"
   end
 
 end
