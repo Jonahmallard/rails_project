@@ -1,0 +1,8 @@
+<h1>All Completed Races</h1>
+
+<% @races.each do |race|%>
+    <p>Race Type: <%=race.race_type %></p>
+    <p>Location: <%=race.location %></p>
+    <p>Date: <%=race.date %></p>
+    <br>
+<% end %>
