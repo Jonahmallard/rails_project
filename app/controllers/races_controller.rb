@@ -7,7 +7,7 @@ class RacesController < ApplicationController
         @race = Race.find_by_id(params[:id])
     end
 
-    #def race_params
-     #   params.require(:race).permit(:action, :id)
-    #end
+    def new
+        
+    end
 end
