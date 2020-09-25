@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Driver.create(username: 'jonahmallard', password: 'password', age: 23, skill_level: 'intermediate')
+# Driver.create(username: 'jonahmallard', password: 'password', age: 23, skill_level: 'intermediate')
 Race.create(race_type: 'Drag', location: 'Bristol', date: 'March, 5th 2016', placement: 1, driver_id: 1, car_id: 3)
 Race.create(race_type: 'Dirt', location: 'Alaska', date: 'March, 17th 2016', placement: 3, driver_id: 1, car_id: 5)
 Race.create(race_type: 'Drift', location: 'Virginia', date: 'April, 19th 2016', placement: 5, driver_id: 1, car_id: 2)

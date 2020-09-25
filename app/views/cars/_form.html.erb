@@ -1,0 +1,9 @@
+    <%= form_for car do |f| %>
+      <%= f.label "Year:" %>
+        <%= f.number_field :year %>
+      <%= f.label "Make:" %>
+        <%= f.text_field :make %>
+      <%= f.label "Model:" %>
+        <%= f.text_field :model %>
+      <%= f.submit %>
+    <% end %>

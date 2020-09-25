@@ -1,12 +1,2 @@
 <h1>Edit Race</h1>    
-    <%= form_for @race do |f| %>
-      <%= f.label "Race Type:" %>
-        <%= f.text_field :race_type %>
-      <%= f.label "Location:" %>
-        <%= f.text_field :location %>
-      <%= f.label "Date (MM/DD/YYYY):" %>
-        <%= f.text_field :date %>
-      <%= f.label "Number Placed #1-500:" %>
-        <%= f.number_field :placement %>
-      <%= f.submit %>
-    <% end %>
+<%= render 'form', race: @race %>
