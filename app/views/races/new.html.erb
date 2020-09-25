@@ -1,1 +1,12 @@
-<h1>New Race</h1>
+<h1>Add a Completed Race</h1>
+    <%= form_for @race do |f| %>
+      <%= f.label "Race Type:" %>
+        <%= f.text_field :race_type %>
+      <%= f.label "Location:" %>
+        <%= f.text_field :location %>
+      <%= f.label "Date (DD/MM/YYYY):" %>
+        <%= f.text_field :date %>
+      <%= f.label "Number Placed #1-500:" %>
+        <%= f.number_field :placement %>
+      <%= f.submit %>
+    <% end %>

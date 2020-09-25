@@ -8,6 +8,6 @@ class CarsController < ApplicationController
     end
 
     def new
-
+        @car = Car.new
     end
 end

@@ -8,6 +8,6 @@ class RacesController < ApplicationController
     end
 
     def new
-        
+        @race = Race.new
     end
 end
