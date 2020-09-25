@@ -1,2 +1,20 @@
 <h1>Add a Completed Race</h1>
+
+<% if @race.errors.any? %>
+    <h3>
+        <%= pluralize(@race.errors.count, "error") %>
+        prohibited this race from being saved:
+    </h3>
+        <ul>
+    <% @race.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+        </ul>
+<% end %>
+
 <%= render 'form', race: @race %>
+<style>
+    .field_with_errors > input {
+        border: 1px solid red
+    }
+</style>

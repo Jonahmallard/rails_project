@@ -12,8 +12,12 @@ class CarsController < ApplicationController
     end
 
     def create
-        car = Car.create(car_params)
-        redirect_to car_path(car)
+        @car = Car.new(car_params)
+        if @car.save
+            redirect_to car_path(@car)
+        else
+            render :new
+        end
     end
 
     def edit; end
