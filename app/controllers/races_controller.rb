@@ -10,4 +10,25 @@ class RacesController < ApplicationController
     def new
         @race = Race.new
     end
+
+    def create
+        race = Race.create(race_params)
+        redirect_to race_path(race)
+    end
+
+    def edit
+        @race = Race.find_by_id(params[:id])
+    end
+
+    def update
+        @race = Race.find_by_id(params[:id])
+        @race.update(race_params)
+        redirect_to race_path(@race)
+    end
+
+    private
+
+    def race_params
+        params.require(:race).permit(:race_type, :location, :date, :placement)
+    end
 end
