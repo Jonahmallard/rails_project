@@ -35,7 +35,7 @@ class RacesController < ApplicationController
     private
 
     def race_params
-        params.require(:race).permit(:race_type, :location, :date, :placement, :car_id)
+        params.require(:race).permit(:race_type, :location, :date, :placement, :car_id, car_attributes: [:year, :make, :model])
     end
 
     def set_race

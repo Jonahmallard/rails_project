@@ -1,14 +1,34 @@
-    <%= form_for race do |f| %>
-    <%= f. collection_select :car_id, Car.all, :id, :year %>
-    <%= f. collection_select :car_id, Car.all, :id, :make, include_blank: true %>
-    <p><%= f. collection_select :car_id, Car.all, :id, :model %></p>
-      <%= f.label "Race Type:" %>
-        <%= f.text_field :race_type %>
-      <%= f.label "Location:" %>
-        <%= f.text_field :location %>
-      <%= f.label "Date (MM/DD/YYYY):" %>
-        <%= f.text_field :date %>
-      <%= f.label "Number Placed 1-300:" %>
-        <%= f.number_field :placement %>
+  <h4>
+<%= form_for race do |f| %>
+  <p>
+    <h3><%= f.label "Create a new vehicle" %></h3>
+  <h4>
+    <%= f.fields_for :car, Car.new do |car_field| %>
+      <%= car_field.label "Year:" %>
+        <%= car_field.number_field :year %>
+      <%= car_field.label "Make:" %>
+        <%= car_field.text_field :make %>
+      <%= car_field.label "Model:" %>
+        <%= car_field.text_field :model %>
+<% end %>
+  </h4>
+</p>
+  <h3>
+    <%= f.label "Or select an existing one:" %>
+      <%= f. collection_select :car_id, Car.all, :id, :year, include_blank: true %>
+      <%= f. collection_select :car_id, Car.all, :id, :make, include_blank: true %>
+      <%= f. collection_select :car_id, Car.all, :id, :model, include_blank: true %>
+  </h3>
+<br>
+    <%= f.label "Race Type:" %>
+      <%= f.text_field :race_type %>
+    <%= f.label "Location:" %>
+      <%= f.text_field :location %>
+    <%= f.label "Date (MM/DD/YYYY):" %>
+      <%= f.text_field :date %>
+    <%= f.label "Number Placed 1-300:" %>
+      <%= f.number_field :placement %>
       <%= f.submit %>
     <% end %>
+  </h4>
+<br>
