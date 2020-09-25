@@ -1,4 +1,7 @@
     <%= form_for race do |f| %>
+    <%= f. collection_select :car_id, Car.all, :id, :year %>
+    <%= f. collection_select :car_id, Car.all, :id, :make, include_blank: true %>
+    <p><%= f. collection_select :car_id, Car.all, :id, :model %></p>
       <%= f.label "Race Type:" %>
         <%= f.text_field :race_type %>
       <%= f.label "Location:" %>
