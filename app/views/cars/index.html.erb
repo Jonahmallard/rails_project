@@ -1,8 +1,8 @@
 <h1>Cars</h1>
-<%= link_to "Add a Car", new_car_path %>
+    <%= link_to "Add a Car", new_car_path %>
 <br>
 <br>
-<% @cars.each do |car|%>
+<% @cars.each do |car| %>
     <p>Year: <%=car.year %></p>
     <p>Make: <%=car.make %></p>
     <p>Model: <%=car.model %></p>

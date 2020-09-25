@@ -1,8 +1,8 @@
 <h1>All Completed Races</h1>
-<%= link_to "Add a Completed Race", new_race_path %>
+    <%= link_to "Add a Completed Race", new_race_path %>
 <br>
 <br>
-<% @races.each do |race|%>
+<% @races.each do |race| %>
     <p>Race Type: <%=race.race_type %></p>
     <p>Location: <%=race.location %></p>
     <p>Date: <%=race.date %></p>

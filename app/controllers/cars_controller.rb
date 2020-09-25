@@ -1,11 +1,11 @@
 class CarsController < ApplicationController
+    before_action :set_car, only: [:show, :edit, :update, :destroy]
+
     def index
         @cars = Car.all
     end
 
-    def show
-        @car = Car.find_by_id(params[:id])
-    end
+    def show; end
 
     def new
         @car = Car.new
@@ -16,18 +16,14 @@ class CarsController < ApplicationController
         redirect_to car_path(car)
     end
 
-    def edit
-        @car = Car.find_by_id(params[:id])
-    end
+    def edit; end
 
     def update
-        @car = Car.find_by_id(params[:id])
         @car.update(car_params)
         redirect_to car_path(@car)
     end
 
     def destroy
-        @car = Car.find_by_id(params[:id])
         @car.destroy
         redirect_to cars_path
     end
@@ -36,5 +32,9 @@ class CarsController < ApplicationController
 
     def car_params
         params.require(:car).permit(:year, :make, :model)
+    end
+
+    def set_car
+        @car = Car.find_by_id(params[:id])
     end
 end
