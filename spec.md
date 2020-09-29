@@ -1,4 +1,7 @@
 Specs:
+<%= if @car_id %>
+    <%= f.hidden_field :car_id, value: @car.id %>
+  <% else %>
 
 [x] Using Ruby on Rails for the project
 [x] Include at least one has_many relationship (x has_many y; e.g. User has_many Recipes)

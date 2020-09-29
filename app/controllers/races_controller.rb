@@ -1,15 +1,20 @@
 class RacesController < ApplicationController
     before_action :set_race, only: [:show, :edit, :update, :destroy]
 
+    def new
+        @car_id = Car.find_by_id([:car_id]) if params[:car_id]
+        @race = Race.new
+    end
+
     def index
-        @races = Race.all
+        if params[:car_id]
+            @races = Race.find_by_car_id([:car_id])
+        else 
+            @races = Race.all
+        end
     end
 
     def show; end
-
-    def new
-        @race = Race.new
-    end
 
     def create
         @race = Race.new(race_params)

@@ -11,4 +11,8 @@ class Race < ApplicationRecord
         self.car = car
         save
     end
+
+    def self.find_by_car_id(id)
+        where(car_id: id)
+    end
 end

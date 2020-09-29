@@ -1,5 +1,11 @@
 <h1>Vehicle Info</h1>
+<%= link_to "Add a New Completed Race", new_car_race_path(@car) %>
+<br>
+<br>
     <p>Year: <%=@car.year %></p>
     <p>Make: <%=@car.make %></p>
     <p>Model: <%=@car.model %></p>
-<%= link_to "Back to All Cars", cars_path %>
+    <%= link_to "Edit", edit_car_path(@car) %> | 
+    <%= link_to "Delete", car_path(@car), method: :delete %> | 
+<%= link_to "View All Car's Races", car_race_path(@car) %> | 
+<%= link_to "Back to All Cars", cars_path %> 

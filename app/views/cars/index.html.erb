@@ -6,6 +6,7 @@
     <p>Year: <%=car.year %></p>
     <p>Make: <%=car.make %></p>
     <p>Model: <%=car.model %></p>
+    <%= link_to "View", car_path(car) %> | 
     <%= link_to "Edit", edit_car_path(car) %> | 
     <%= link_to "Delete", car_path(car), method: :delete %>
     <br>
