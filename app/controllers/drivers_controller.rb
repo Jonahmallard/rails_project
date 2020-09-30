@@ -5,9 +5,9 @@ class DriversController < ApplicationController
     end
 
     def create
-        driver = Driver.new(driver_params)
-        if driver.save
-            session[:driver_id] = driver.id 
+        @driver = Driver.new(driver_params)
+        if  @driver.save
+            session[:driver_id] = @driver.id 
             redirect_to cars_path
         else
             render :new
