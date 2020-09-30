@@ -14,6 +14,10 @@ class DriversController < ApplicationController
         end
     end
 
+    def show
+        @driver = Driver.find_by_id(params[:id])
+    end
+
     private
 
     def driver_params

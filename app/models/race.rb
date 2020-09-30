@@ -4,13 +4,7 @@ class Race < ApplicationRecord
     validates :date, presence: :true
     validates :location, presence: :true
     validates :placement, inclusion: 1..300 
-    accepts_nested_attributes_for :car
-
-    def car_attributes=(car_attributes)
-        car = Car.find_or_create_by(car_attributes)
-        self.car = car
-        save
-    end
+    accepts_nested_attributes_for :car, reject_if: :all_blank
 
     def self.find_by_car_id(id)
         where(car_id: id)

@@ -1,5 +1,6 @@
 class RacesController < ApplicationController
     before_action :set_race, only: [:show, :edit, :update, :destroy]
+    before_action :set_car
 
     def new
         @car_id = Car.find_by_id([:car_id]) if params[:car_id]
@@ -19,7 +20,7 @@ class RacesController < ApplicationController
 
     def index
         if params[:car_id]
-            @races = Race.find_by_car_id([:car_id])
+            @races = Race.find_by_car_id(params[:car_id])
         else 
             @races = Race.all
         end
@@ -45,5 +46,9 @@ class RacesController < ApplicationController
 
     def set_race
         @race = Race.find_by_id(params[:id])
+    end
+
+    def set_car
+        @car = Car.find_by_id(params[:id])
     end
 end

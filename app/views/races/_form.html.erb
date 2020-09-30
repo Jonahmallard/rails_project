@@ -13,9 +13,7 @@
 <br>
   <h3>
     <%= f.label "Or select an existing one:" %>
-      <%= f.collection_select :car_id, Car.all, :id, :year, include_blank: true %>
-      <%= f.collection_select :car_id, Car.all, :id, :make, include_blank: true %>
-      <%= f.collection_select :car_id, Car.all, :id, :model, include_blank: true %>
+      <%= f.collection_select :car_id, Car.all, :id, :full_name, include_blank: true %>
   </h3>
 <br>
   <h4>

@@ -5,7 +5,13 @@
     <p>Year: <%=@car.year %></p>
     <p>Make: <%=@car.make %></p>
     <p>Model: <%=@car.model %></p>
+    <h3>Who has driven this car?</h3>
+    <ul>
+       <% @car.drivers.each do |driver| %>
+       <li><%= link_to driver.username, driver_path(driver) %></li>
+       <% end %>
+    </ul>
     <%= link_to "Edit", edit_car_path(@car) %> | 
     <%= link_to "Delete", car_path(@car), method: :delete %> | 
-<%= link_to "View All Car's Races", car_race_path(@car) %> | 
+<%= link_to "View All Car's Races", car_races_path(@car) %> | 
 <%= link_to "Back to All Cars", cars_path %> 
