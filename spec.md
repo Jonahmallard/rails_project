@@ -1,5 +1,5 @@
 Specs:
-<%= if @car_id %>
+  <%= if @car_id %>
     <%= f.hidden_field :car_id, value: @car.id %>
   <% else %>
 

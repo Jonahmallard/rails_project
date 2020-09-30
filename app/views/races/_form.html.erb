@@ -1,7 +1,5 @@
-  <h4>
 <%= form_for race do |f| %>
-  <p>
-    <h3><%= f.label "Create a new vehicle" %></h3>
+    <h2><%= f.label "Create a new vehicle:" %></h2>
   <h4>
     <%= f.fields_for :car, Car.new do |car_field| %>
       <%= car_field.label "Year:" %>
@@ -12,7 +10,7 @@
         <%= car_field.text_field :model %>
       <% end %>
   </h4>
-</p>
+<br>
   <h3>
     <%= f.label "Or select an existing one:" %>
       <%= f. collection_select :car_id, Car.all, :id, :year, include_blank: true %>
@@ -20,6 +18,7 @@
       <%= f. collection_select :car_id, Car.all, :id, :model, include_blank: true %>
   </h3>
 <br>
+  <h4>
     <%= f.label "Race Type:" %>
       <%= f.text_field :race_type %>
     <%= f.label "Location:" %>
