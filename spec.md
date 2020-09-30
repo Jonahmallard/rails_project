@@ -2,6 +2,26 @@ Specs:
 <%= if @car_id %>
     <%= f.hidden_field :car_id, value: @car.id %>
   <% else %>
+    <p>
+    <h3><%= f.label "Create a new vehicle" %></h3>
+  <h4>
+    <%= f.fields_for :car, Car.new do |car_field| %>
+      <%= car_field.label "Year:" %>
+        <%= car_field.number_field :year %>
+      <%= car_field.label "Make:" %>
+        <%= car_field.text_field :make %>
+      <%= car_field.label "Model:" %>
+        <%= car_field.text_field :model %>
+      <% end %>
+  </h4>
+</p>
+  <h3>
+    <%= f.label "Or select an existing one:" %>
+      <%= f. collection_select :car_id, Car.all, :id, :year, include_blank: true %>
+      <%= f. collection_select :car_id, Car.all, :id, :make, include_blank: true %>
+      <%= f. collection_select :car_id, Car.all, :id, :model, include_blank: true %>
+  </h3>
+<br>
 
 [x] Using Ruby on Rails for the project
 [x] Include at least one has_many relationship (x has_many y; e.g. User has_many Recipes)
