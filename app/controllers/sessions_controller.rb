@@ -11,8 +11,24 @@ class SessionsController < ApplicationController
         end
     end
 
+    def omniauth
+        driver = Driver.from_omniauth(auth)
+        if driver.valid?
+            session[:driver_id] = driver.id
+            redirect_to cars_path
+        else
+            redirect_to login_path
+        end
+    end
+
     def destroy
         session.clear
         redirect_to '/'
+    end
+
+    protected
+
+    def auth
+        request.env['omniauth.auth']
     end
 end

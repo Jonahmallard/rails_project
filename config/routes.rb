@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/', to: "welcomes#index"
+
   get '/signup', to: "drivers#new"
 
   get '/login', to: "sessions#new"
@@ -7,10 +9,10 @@ Rails.application.routes.draw do
 
   delete '/logout', to: "sessions#destroy"
 
-  get '/', to: "welcomes#index"
-
   resources :drivers
   resources :races
+
+  get '/auth/:provider/callback', to: "sessions#omniauth"
 
   resources :cars do
     resources :races
