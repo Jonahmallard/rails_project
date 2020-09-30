@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  get '/signup', to: "drivers#new"
+  get '/', to: "application#welcome"
+
   resources :drivers
   resources :races
 
