@@ -6,22 +6,22 @@ class RacesController < ApplicationController
         @race = Race.new
     end
 
-    def index
-        if params[:car_id]
-            @races = Race.find_by_car_id([:car_id])
-        else 
-            @races = Race.all
-        end
-    end
-
-    def show; end
-
     def create
         @race = Race.new(race_params)
         if @race.save
             redirect_to race_path(@race)
         else
             render :new
+        end
+    end
+
+    def show; end
+
+    def index
+        if params[:car_id]
+            @races = Race.find_by_car_id([:car_id])
+        else 
+            @races = Race.all
         end
     end
 
