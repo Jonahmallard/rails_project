@@ -7,9 +7,7 @@
     <p>Location: <%=race.location %></p>
     <p>Date: <%=race.date %></p>
     <p>Placed: <%=race.placement %></p>
-    <%= link_to "View", race_path(race) %> | 
-    <%= link_to "Edit", edit_race_path(race) %> | 
-    <%= link_to "Delete", race_path(race), method: :delete %>
+    <%= link_to "View", race_path(race) %>
     <br>
     <br>
 <% end %>

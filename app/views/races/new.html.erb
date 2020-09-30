@@ -1,4 +1,4 @@
-<h1>Add a Completed Race</h1>
+<h1>Add a Completed Race <%= @car && "for #{@car.full_name}" %></h1>
 
 <% if @race.errors.any? %>
     <h3>

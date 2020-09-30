@@ -1,17 +1,13 @@
 <h1>Vehicle Info</h1>
-<%= link_to "Add a New Completed Race", new_car_race_path(@car) %>
-<br>
-<br>
     <p>Year: <%=@car.year %></p>
     <p>Make: <%=@car.make %></p>
     <p>Model: <%=@car.model %></p>
     <h3>Who has driven this car?</h3>
     <ul>
-       <% @car.drivers.each do |driver| %>
+       <% @car.drivers.uniq.each do |driver| %>
        <li><%= link_to driver.username, driver_path(driver) %></li>
        <% end %>
-    </ul>
-    <%= link_to "Edit", edit_car_path(@car) %> | 
-    <%= link_to "Delete", car_path(@car), method: :delete %> | 
+    </ul> 
 <%= link_to "View All Car's Races", car_races_path(@car) %> | 
+<%= link_to "Log a new Race", new_car_race_path(@car) %> | 
 <%= link_to "Back to All Cars", cars_path %> 

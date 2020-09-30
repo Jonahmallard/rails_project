@@ -3,7 +3,7 @@ class RacesController < ApplicationController
     before_action :set_car
 
     def new
-        @car_id = Car.find_by_id([:car_id]) if params[:car_id]
+        @car = Car.find_by_id(params[:car_id]) if params[:car_id]
         @race = Race.new
     end
 
@@ -26,16 +26,30 @@ class RacesController < ApplicationController
         end
     end
 
-    def edit; end
+    def edit
+        if @race.driver == current_driver
+        else
+            flash[:alert] = "You can only edit your own race"
+            
+        end
+    end
 
     def update
-        @race.update(race_params)
-        redirect_to race_path(@race)
+        if @race.driver == current_driver
+            @race.update(race_params)
+            redirect_to race_path(@race)
+        else 
+
+        end
     end
 
     def destroy
-        @race.destroy
-        redirect_to races_path
+        if @race.driver == current_driver
+            @race.destroy
+            redirect_to races_path
+        else
+
+        end
     end
 
     private

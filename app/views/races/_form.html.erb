@@ -1,4 +1,7 @@
 <%= form_for race do |f| %>
+<% if @car %>
+    <%= f.hidden_field :car_id, value: @car.id %>
+<% else %>
     <h2><%= f.label "Create a new vehicle:" %></h2>
   <h4>
     <%= f.fields_for :car, Car.new do |car_field| %>
@@ -15,6 +18,7 @@
     <%= f.label "Or select an existing one:" %>
       <%= f.collection_select :car_id, Car.all, :id, :full_name, include_blank: true %>
   </h3>
+<% end %>
 <br>
   <h4>
     <%= f.label "Race Type:" %>
@@ -26,6 +30,6 @@
     <%= f.label "Number Placed 1-300:" %>
       <%= f.number_field :placement %>
       <%= f.submit %>
-      <% end %>
+      <% end %>  
   </h4>
 <br>

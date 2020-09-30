@@ -1,15 +1,13 @@
 <h2>Welcome, <%= current_driver.username %>!</h2>
 <h1>Cars</h1>
-    <%= link_to "Add a Car", new_car_path %>
+    <%= link_to "Add a New Car", new_car_path %>
 <br>
 <br>
 <% @cars.each do |car| %>
     <p>Year: <%=car.year %></p>
     <p>Make: <%=car.make %></p>
     <p>Model: <%=car.model %></p>
-    <%= link_to "View", car_path(car) %> | 
-    <%= link_to "Edit", edit_car_path(car) %> | 
-    <%= link_to "Delete", car_path(car), method: :delete %>
+    <%= link_to "View", car_path(car) %>
     <br>
     <br>
 <% end %>
