@@ -7,7 +7,7 @@ class RacesController < ApplicationController
     end
 
     def create
-        @race = Race.new(race_params)
+        @race = current_driver.races.build(race_params)
         if @race.save
             redirect_to race_path(@race)
         else

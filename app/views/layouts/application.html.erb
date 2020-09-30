@@ -4,14 +4,22 @@
     <title>Drivers App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= link_to "View All Cars", cars_path %> | or |
-    <%= link_to "Completed Races", races_path %>
+    <% if session[:driver_id] %>
+      <%= link_to "View All Cars", cars_path %> | or |
+      <%= link_to "Completed Races", races_path %>
+    <% else %>
+      <h3><%= link_to "Sign Up", '/signup' %></h3>
+    <% end %>
+       <br>
+       <p>
+  <h2 style="float: right;"><%= render_navigation %></h2>
+      </p>
     <%= yield %>
   </body>
+  
 </html>

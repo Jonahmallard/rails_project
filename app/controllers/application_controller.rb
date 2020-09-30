@@ -1,11 +1,5 @@
 class ApplicationController < ActionController::Base
-    layout false
-
-    def welcome
-        render 'layouts/welcome'
-    end
-
     def current_driver
-        @current_driver ||= Driver.first
+        @driver ||= Driver.find_by_id(session[:driver_id])
     end
 end

@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   get '/signup', to: "drivers#new"
-  get '/', to: "application#welcome"
+
+  get '/login', to: "sessions#new"
+
+  delete '/logout', to: "sessions#destroy"
+
+  get '/', to: "welcomes#index"
 
   resources :drivers
   resources :races

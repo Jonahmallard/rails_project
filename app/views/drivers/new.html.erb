@@ -1,1 +1,8 @@
-<h1>Hello World<h1>
+<h1>Sign Up<h1>
+<%= form_for @driver do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.submit "sign up" %>
+<% end %>
