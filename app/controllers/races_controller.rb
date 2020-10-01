@@ -28,9 +28,11 @@ class RacesController < ApplicationController
 
     def edit
         if @race.driver == current_driver
+            @car = @race.car
+            render :edit
         else
             flash[:alert] = "You can only edit your own race"
-            
+            redirect_to races_path
         end
     end
 
@@ -39,7 +41,8 @@ class RacesController < ApplicationController
             @race.update(race_params)
             redirect_to race_path(@race)
         else 
-
+            flash[:alert] = "You can only update your own race"
+            redirect_to races_path
         end
     end
 
@@ -48,7 +51,8 @@ class RacesController < ApplicationController
             @race.destroy
             redirect_to races_path
         else
-
+            flash[:alert] = "You can only delete your own race"
+            redirect_to races_path
         end
     end
 
@@ -60,9 +64,17 @@ class RacesController < ApplicationController
 
     def set_race
         @race = Race.find_by_id(params[:id])
+        if !@race
+            flash[:alert] = "Race not found"
+            redirect_to races_path
+        end
     end
 
     def set_car
         @car = Car.find_by_id(params[:id])
+        if !@car
+            flash[:alert] = "Car not found"
+            redirect_to races_path
+        end
     end
 end

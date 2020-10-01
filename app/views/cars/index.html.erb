@@ -1,4 +1,7 @@
 <h2>Welcome, <%= current_driver.username %>!</h2>
+<% if flash[:alert] %>
+    <h2><%= flash[:alert] %></h2>
+<% end %>
 <h1>Cars</h1>
     <%= link_to "Add a New Car", new_car_path %>
 <br>

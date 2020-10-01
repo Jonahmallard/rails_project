@@ -1,3 +1,5 @@
 <h1>Edit Race</h1> 
-
+<% if flash[:alert] %>
+    <h2><%= flash[:alert] %></h2>
+<% end %>
 <%= render 'form', race: @race %>

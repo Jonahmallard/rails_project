@@ -9,12 +9,12 @@ Rails.application.routes.draw do
 
   delete '/logout', to: "sessions#destroy"
 
-  resources :drivers
+  resources :drivers, only: [:new, :create, :show]
   resources :races
 
   get '/auth/:provider/callback', to: "sessions#omniauth"
 
-  resources :cars do
+  resources :cars, only: [:new, :create, :show, :index] do
     resources :races
   end
   

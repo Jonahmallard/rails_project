@@ -1,4 +1,7 @@
 <h1>All Completed Races</h1>
+<% if flash[:alert] %>
+    <h2><%= flash[:alert] %></h2>
+<% end %>
     <%= link_to "Add a Completed Race", new_race_path %>
 <br>
 <br>
@@ -8,6 +11,10 @@
     <p>Date: <%=race.date %></p>
     <p>Placed: <%=race.placement %></p>
     <%= link_to "View", race_path(race) %>
+    <% if race.driver == current_driver %>
+        <%= link_to "Edit", edit_race_path(race) %>
+        <%= link_to "Delete", race_path(race), method: :delete %>
+    <% end %>
     <br>
     <br>
 <% end %>
