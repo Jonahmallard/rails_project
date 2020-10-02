@@ -64,17 +64,9 @@ class RacesController < ApplicationController
 
     def set_race
         @race = Race.find_by_id(params[:id])
-        if !@race
-            flash[:alert] = "Race not found"
-            redirect_to races_path
-        end
     end
 
     def set_car
         @car = Car.find_by_id(params[:id])
-        if !@car
-            flash[:alert] = "Car not found"
-            redirect_to races_path
-        end
     end
 end
