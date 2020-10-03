@@ -1,4 +1,5 @@
 <h1>Vehicle Info</h1>
+<body>
     <p>Year: <%=@car.year %></p>
     <p>Make: <%=@car.make %></p>
     <p>Model: <%=@car.model %></p>
@@ -11,3 +12,4 @@
 <%= link_to "View All Car's Races", car_races_path(@car) %> | 
 <%= link_to "Log a new Race", new_car_race_path(@car) %> | 
 <%= link_to "Back to All Cars", cars_path %> 
+</body>

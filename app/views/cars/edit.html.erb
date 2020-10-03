@@ -1,2 +1,5 @@
 <h1>Edit Car</h1>    
+<% if flash[:alert] %>
+    <h2><%= flash[:alert] %></h2>
+<% end %>
 <%= render 'form', car: @car %>
