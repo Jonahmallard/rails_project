@@ -5,7 +5,7 @@ class CarsController < ApplicationController
         @cars = Car.all
     end
 
-    def show; end
+    def show;  end
 
     def new
         @car = Car.new
@@ -40,5 +40,9 @@ class CarsController < ApplicationController
 
     def set_car
         @car = Car.find_by_id(params[:id])
+        if !@car 
+            flash[:alert] = "Car not found"
+            redirect_to cars_path
+        end
     end
 end

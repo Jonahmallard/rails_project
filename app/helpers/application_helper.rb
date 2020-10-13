@@ -7,4 +7,6 @@ module ApplicationHelper
             link_to 'Login', '/login'
         end 
     end
+
+    
 end
