@@ -16,6 +16,7 @@ class CarsController < ApplicationController
         if @car.save
             redirect_to car_path(@car)
         else
+            @errors = @car.errors.messages
             render :new
         end
     end
