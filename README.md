@@ -13,3 +13,9 @@ each tables connects with the belongs_to, has_many, and has_many through: method
 I have implemented Omniauth using a Google account sign in. All the views of the application should be applicable to any browser.
 
 * Deployment instructions - Involves running bundle to access all the necessary Gems used in the app. As well as running Rails server or Rails s for short. If you have any problems staring the server you may have to install Yarn for Ubuntu on Windows on the yarn install website, and follow the instructions carefully. Each line they require to be run in the terminal is crucial.
+
+## Screenshots
+
+![Drivers App](screenshots/drivers-app.png)
+
+![Drivers App - Cars](screenshots/drivers-app-cars.png)
